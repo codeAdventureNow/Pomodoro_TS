@@ -1,4 +1,4 @@
-import sound from './assets/Whistle.m4a';
+// import sound from './assets/Whistle.m4a';
 import './App.css';
 import { useReducer, useEffect } from 'react';
 
@@ -13,6 +13,15 @@ const INCREMENT_BREAK_LENGTH = 'increment_break_length';
 const DECREMENT_TIME = 'decrement_time';
 
 const minute = 60000;
+
+const initState = {
+  time: minute * 25,
+  timeStart: false,
+  sessionLength: minute * 25,
+  breakLength: minute * 5,
+  onBreak: false,
+  sessionTally: 0,
+};
 
 function reducer(state, action) {
   switch (action.type) {
@@ -77,14 +86,7 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, {
-    time: minute * 25,
-    timeStart: false,
-    sessionLength: minute * 25,
-    breakLength: minute * 5,
-    onBreak: false,
-    sessionTally: 0,
-  });
+  const [state, dispatch] = useReducer(reducer, initState);
 
   function playAudioAlert() {
     new Audio(sound).play();
