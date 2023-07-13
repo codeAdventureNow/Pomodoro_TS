@@ -23,59 +23,78 @@ const initState = {
   sessionTally: 0,
 };
 
-function reducer(state, action) {
+const enum REDUCER_ACTION_TYPE {
+  SET_BREAK,
+  START_NEW_SESSION,
+  RESET_SESSION_AND_BREAK,
+  INCREMENT_SESSION_LENGTH,
+  DECREMENT_SESSION_LENGTH,
+  TIME_START_TOGGLE,
+  INCREMENT_BREAK_LENGTH,
+  DECREMENT_BREAK_LENGTH,
+  DECREMENT_TIME,
+}
+
+type ReducerAction = {
+  type: REDUCER_ACTION_TYPE;
+};
+
+function reducer(
+  state: typeof initState,
+  action: ReducerAction
+): typeof initState {
   switch (action.type) {
-    case SET_BREAK:
+    case REDUCER_ACTION_TYPE.SET_BREAK:
       return {
         ...state,
         onBreak: true,
         sessionTally: state.sessionTally + 1,
         time: state.breakLength,
       };
-    case START_NEW_SESSION:
+    case REDUCER_ACTION_TYPE.START_NEW_SESSION:
       return {
         ...state,
         onBreak: false,
         sessionTally: state.sessionTally - 1,
         time: state.sessionLength,
       };
-    case RESET_SESSION_AND_BREAK:
+    case REDUCER_ACTION_TYPE.RESET_SESSION_AND_BREAK:
       return {
         ...state,
         time: minute * 25,
         sessionLength: minute * 25,
         breakLength: minute * 5,
       };
-    case INCREMENT_SESSION_LENGTH:
+    case REDUCER_ACTION_TYPE.INCREMENT_SESSION_LENGTH:
       return {
         ...state,
         sessionLength: state.sessionLength + minute,
         time: state.time + minute,
       };
-    case DECREMENT_SESSION_LENGTH:
+    case REDUCER_ACTION_TYPE.DECREMENT_SESSION_LENGTH:
       return {
         ...state,
         sessionLength: state.sessionLength - minute,
         time: state.time - minute,
       };
-    case TIME_START_TOGGLE: {
+    case REDUCER_ACTION_TYPE.TIME_START_TOGGLE: {
       return {
         ...state,
         timeStart: action.payload,
       };
     }
 
-    case DECREMENT_BREAK_LENGTH:
+    case REDUCER_ACTION_TYPE.DECREMENT_BREAK_LENGTH:
       return {
         ...state,
         breakLength: state.breakLength - minute,
       };
-    case INCREMENT_BREAK_LENGTH:
+    case REDUCER_ACTION_TYPE.INCREMENT_BREAK_LENGTH:
       return {
         ...state,
         breakLength: state.breakLength + minute,
       };
-    case DECREMENT_TIME:
+    case REDUCER_ACTION_TYPE.DECREMENT_TIME:
       return {
         ...state,
         time: state.time - 1000,
