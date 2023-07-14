@@ -2,19 +2,18 @@
 import './App.css';
 import { useReducer, useEffect } from 'react';
 
-const SET_BREAK = 'set_break';
-const START_NEW_SESSION = 'start_new_session';
-const RESET_SESSION_AND_BREAK = 'reset_session_and_break';
-const INCREMENT_SESSION_LENGTH = 'increment_session_length';
-const DECREMENT_SESSION_LENGTH = 'decrement_session_length';
-const TIME_START_TOGGLE = 'time_start_toggle';
-const DECREMENT_BREAK_LENGTH = 'decrement_break_length';
-const INCREMENT_BREAK_LENGTH = 'increment_break_length';
-const DECREMENT_TIME = 'decrement_time';
-
 const minute = 60000;
 
-const initState = {
+interface State {
+  time: number;
+  timeStart: boolean | undefined;
+  sessionLength: number;
+  breakLength: number;
+  onBreak: boolean;
+  sessionTally: number;
+}
+
+const initState: State = {
   time: minute * 25,
   timeStart: false,
   sessionLength: minute * 25,
@@ -37,6 +36,7 @@ const enum REDUCER_ACTION_TYPE {
 
 type ReducerAction = {
   type: REDUCER_ACTION_TYPE;
+  payload?: boolean;
 };
 
 function reducer(
@@ -115,7 +115,7 @@ function App() {
     if (state.time === 0) {
       playAudioAlert();
       dispatch({
-        type: SET_BREAK,
+        type: REDUCER_ACTION_TYPE.SET_BREAK,
       });
     }
   }, [state.time]);
@@ -124,14 +124,14 @@ function App() {
     if (state.time === 0 && state.onBreak) {
       playAudioAlert();
       dispatch({
-        type: START_NEW_SESSION,
+        type: REDUCER_ACTION_TYPE.START_NEW_SESSION,
       });
     }
   }, [state.time, state.onBreak]);
 
   function resetToDefault() {
     dispatch({
-      type: RESET_SESSION_AND_BREAK,
+      type: REDUCER_ACTION_TYPE.RESET_SESSION_AND_BREAK,
     });
   }
 
@@ -140,7 +140,7 @@ function App() {
       return;
     } else {
       dispatch({
-        type: INCREMENT_SESSION_LENGTH,
+        type: REDUCER_ACTION_TYPE.INCREMENT_SESSION_LENGTH,
       });
     }
   }
@@ -150,7 +150,7 @@ function App() {
       return;
     } else {
       dispatch({
-        type: DECREMENT_SESSION_LENGTH,
+        type: REDUCER_ACTION_TYPE.DECREMENT_SESSION_LENGTH,
       });
     }
   }
@@ -160,7 +160,7 @@ function App() {
       return;
     } else {
       dispatch({
-        type: DECREMENT_BREAK_LENGTH,
+        type: REDUCER_ACTION_TYPE.DECREMENT_BREAK_LENGTH,
       });
     }
   }
@@ -170,17 +170,17 @@ function App() {
       return state.breakLength === minute * 59;
     } else {
       dispatch({
-        type: INCREMENT_BREAK_LENGTH,
+        type: REDUCER_ACTION_TYPE.INCREMENT_BREAK_LENGTH,
       });
     }
   }
 
   useEffect(() => {
-    let interval;
+    let interval: number;
     if (state.timeStart) {
       interval = setInterval(() => {
         dispatch({
-          type: DECREMENT_TIME,
+          type: REDUCER_ACTION_TYPE.DECREMENT_TIME,
         });
       }, 1000);
     } else if (!state.timeStart) {
@@ -228,7 +228,7 @@ function App() {
             }}
             onClick={() =>
               dispatch({
-                type: TIME_START_TOGGLE,
+                type: REDUCER_ACTION_TYPE.TIME_START_TOGGLE,
                 payload: true,
               })
             }
@@ -244,7 +244,7 @@ function App() {
             }}
             onClick={() =>
               dispatch({
-                type: TIME_START_TOGGLE,
+                type: REDUCER_ACTION_TYPE.TIME_START_TOGGLE,
                 payload: false,
               })
             }
