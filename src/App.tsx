@@ -1,4 +1,4 @@
-// import sound from './assets/Whistle.m4a';
+import sound from './assets/Whistle.m4a';
 import './App.css';
 import { useReducer, useEffect } from 'react';
 
@@ -108,7 +108,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initState);
 
   function playAudioAlert() {
-    new Audio(sound).play();
+    void new Audio(sound).play();
   }
 
   useEffect(() => {
