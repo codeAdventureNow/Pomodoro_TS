@@ -207,10 +207,10 @@ function App() {
           {state.onBreak ? <p>On Break</p> : <p>In Session</p>}
           <div className='timeCounter'>
             <span>
-              {('0' + (Math.floor(state.time / minute) % 60)).slice(-2)}:
+              {('0' + String(Math.floor(state.time / minute) % 60)).slice(-2)}:
             </span>
             <span>
-              {('0' + (Math.floor(state.time / 1000) % 60)).slice(-2)}
+              {('0' + String(Math.floor(state.time / 1000) % 60)).slice(-2)}
             </span>
           </div>
         </div>
@@ -273,10 +273,15 @@ function App() {
               +
             </button>
             <span>
-              {('0' + (Math.floor(state.breakLength / minute) % 60)).slice(-2)}:
+              {(
+                '0' + String(Math.floor(state.breakLength / minute) % 60)
+              ).slice(-2)}
+              :
             </span>
             <span>
-              {('0' + (Math.floor(state.breakLength / 1000) % 60)).slice(-2)}
+              {('0' + String(Math.floor(state.breakLength / 1000) % 60)).slice(
+                -2
+              )}
             </span>
 
             <button
@@ -295,13 +300,15 @@ function App() {
               +
             </button>
             <span>
-              {('0' + (Math.floor(state.sessionLength / minute) % 60)).slice(
-                -2
-              )}
+              {(
+                '0' + String(Math.floor(state.sessionLength / minute) % 60)
+              ).slice(-2)}
               :
             </span>
             <span>
-              {('0' + (Math.floor(state.sessionLength / 1000) % 60)).slice(-2)}
+              {(
+                '0' + String(Math.floor(state.sessionLength / 1000) % 60)
+              ).slice(-2)}
             </span>
             <button
               className='breakSessionButtons'
