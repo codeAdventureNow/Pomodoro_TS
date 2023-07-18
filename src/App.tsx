@@ -1,4 +1,4 @@
-import sound from './assets/Whistle.m4a';
+import sound from './assets/Rising.wav';
 import './App.css';
 import { useReducer, useEffect } from 'react';
 
