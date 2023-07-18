@@ -176,7 +176,7 @@ function App() {
   }
 
   useEffect(() => {
-    let interval: number;
+    let interval: number | undefined;
     if (state.timeStart) {
       interval = setInterval(() => {
         dispatch({
