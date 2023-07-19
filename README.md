@@ -3,7 +3,9 @@
 
 ## User Stories
 &check; - html checkbox example
+
 &check; - html checkbox example
+
 &check; - html checkbox example
 
 ## Lesson Learned
