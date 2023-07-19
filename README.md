@@ -4,13 +4,13 @@ During this project, I experienced a significant breakthrough in my understandin
 The project was later refactored to have the state managed by a reducer and then refactored once more into TypeScript. 
 
 ## User Stories
-&check; I can set varied session and break lengths.
+&check;  I can set varied session and break lengths.
 
-&check; I can pause and reset sessions and breaks.
+&check;  I can pause and reset sessions and breaks.
 
-&check; I can hear an audio alert when it is time to start my break or resume work.
+&check;  I can hear an audio alert when it is time to start my break or resume work.
 
-&check; I can see a tally of how many breaks/sessions I have completed.
+&check;  I can see a tally of how many breaks/sessions I have completed.
 
 ## Lessons Learned
 - Simplifying state management with a reducer
