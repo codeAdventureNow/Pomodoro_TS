@@ -13,17 +13,18 @@ The project was later refactored to have the state managed by a reducer and then
 &check; - I can see a tally of how many breaks/sessions I have completed.
 
 ## Lessons Learned
-1. Simplifying state management with a reducer
+- Simplifying state management with a reducer
 
-2. Using setInterval within a useEffect
+- Using setInterval within a useEffect
 
-3. Refactoring a reducer into TypeScript with an interface
+- Refactoring a reducer into TypeScript with an interface
 
 ## Getting Started:
 
-Run: npm install
-Run: npm start
-Go to: http://localhost:3000/
+1.  cd vite-project
+2.  npm install
+3.  npm run dev
+4.  Go to http://localhost:5173/
 
 
 
