@@ -1,17 +1,24 @@
 # Pomodoro Timer
 <br>
+During this project, I experienced a significant breakthrough in my understanding of state management. One of the challenges I faced was implementing a countdown clock, which required some creative problem-solving. Once I overcame that obstacle, the project progressed smoothly. As an additional self-imposed challenge, I incorporated a feature where the UI of the timer would dynamically toggle colors based on whether the user was in a 'session' or 'break' mode.
+The project was later refactored to have the state managed by a reducer and then refactored once more into TypeScript. 
 
 ## User Stories
-&check; - html checkbox example
+&check; - I can set varied session and break lengths.
 
-&check; - html checkbox example
+&check; - I can pause and reset sessions and breaks.
 
-&check; - html checkbox example
+&check; - I can hear an audio alert when it is time to start my break or resume work.
 
-## Lesson Learned
-&check; - html checkbox example
+&check; - I can see a tally of how many breaks/sessions I have completed.
+
+## Lessons Learned
+&check; - Simplifying state management with a reducer
+
+&check; - Using setInterval within a useEffect
+
+&check; - Refactoring a reducer into TypeScript with an interface
 
 
-During this project, I experienced a significant breakthrough in my understanding of state management. One of the challenges I faced was implementing a countdown clock, which required some creative problem-solving. Once I overcame that obstacle, the project progressed smoothly. As an additional self-imposed challenge, I incorporated a feature where the UI of the timer would dynamically toggle colors based on whether the user was in a 'session' or 'break' mode.
 
 
