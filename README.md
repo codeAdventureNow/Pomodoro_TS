@@ -19,7 +19,7 @@ The project was later refactored to have the state managed by a reducer and then
 
 - Refactoring a reducer into TypeScript with an interface
 
-## Getting Started:
+## Getting Started
 
 1.  cd vite-project
 2.  npm install
