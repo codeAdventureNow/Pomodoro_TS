@@ -26,7 +26,7 @@ The project was later refactored to have the state managed by a reducer and then
 3.  npm run dev
 4.  Go to http://localhost:5173/
 
-Check out the demo of [link]([http://example.com](https://pomodoro-ts-one.vercel.app/)https://pomodoro-ts-one.vercel.app/ "Pomodoro").
+Check out the demo of [Pomodoro](https://pomodoro-ts-one.vercel.app/) .
 
 
 
