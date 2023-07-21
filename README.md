@@ -1,10 +1,6 @@
 # Pomodoro Timer :tomato:
 <br>
-During this project, I experienced a significant breakthrough in my understanding of state management. One of the challenges I faced was implementing a countdown clock, which required some creative problem-solving and the use of setInterval to decrement time in seconds. Once I overcame that obstacle, the project progressed smoothly.
-</br>
-</br>
-As an additional self-imposed challenge, I incorporated a feature where the UI of the timer would dynamically toggle colors based on whether the user was in a 'session' or 'break' mode.
-The project was later refactored to have the state managed by a reducer and then refactored once more into TypeScript. 
+Initially, I thought creating a Tic Tac Toe app would be straightforward after completing a React Calculator. However, I was mistaken. The complexity increased when I decided to implement a computer player. During the project, I had a breakthrough in working with reducers, simplifying functions, and utilizing booleans as state toggles. It was a valuable learning experience that enhanced my problem-solving skills and provided insights into state management. I'm proud of the progress made and the lessons learned.
 
 ## User Stories
 &check;  I can set varied session and break lengths.
